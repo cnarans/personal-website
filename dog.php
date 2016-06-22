@@ -19,6 +19,9 @@
 	</head>
 	<body>
 		<img src="dog.jpg" alt=This guy>
-		
+		<img src="dog2.jpg">
+		<img src="dog3.jpg">
+		<img src="dog4.jpg">
+		<img src="dog5.jpg">
 	</body>
 </html>
