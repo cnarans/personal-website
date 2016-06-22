@@ -1,13 +1,21 @@
-<?php 
-include 'functions.php'; 
-printNav($allPages, "ai.php");
-?>
+
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Thoughts on What's Next for Artificial Intelligence</title>
 		<h1>Thoughts on What's Next for Articial Intelligence</h1>
+		<p>Pages:
+			<?php 
+				include 'functions.php'; 
+				printNav($allPages, 1);
+			?>
+		</p>
+		<p>Articles:
+			<?php 
+				printNav($articles, "ai.php");
+			?>
+		</p>
 	</head>
 
 	<body>

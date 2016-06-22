@@ -1,13 +1,21 @@
-<?php 
-include 'functions.php'; 
-printNav($allPages, "goals.php");
-?>
+
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Colin's Goals</title>
 		<h1>Colin's Goals</h1>
+		<p>Pages:
+			<?php 
+				include 'functions.php'; 
+				printNav($allPages, "goals.php");
+			?>
+		</p>
+		<p>Articles:
+			<?php 
+				printNav($articles, 1);
+			?>
+		</p>
 	<body>
 
 		<h2>Personal Goals</h2>
