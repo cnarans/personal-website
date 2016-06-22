@@ -1,3 +1,8 @@
+<?php 
+include 'functions.php'; 
+printNav($allPages, "ai.php");
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,16 +19,6 @@
 
 		<p>	Future advances in AI could lead to computers with human-like intelligence.  This type of AI is comparable to nuclear technology in that it could provide tremendous benefits to humanity, but also carries tremendous risk.  A human-like AI would need to have human values in order to mitigate any risk it could pose, and teaching moral values to a computer is a relatively unexplored field.</p>
 
-		<h4>Pages</h4>
-			<p><a href="index.html">-Home</a></p>
-			<p><a href="goals.html">-Goals</a></p>
-			<p><a href="dog.html">-My Furball</a></p>
-
-		<h4>Articles</h4>
-			<p>-The Future of AI</p>
-
-		<h4>My Profiles</h4>
-			<p><a href="https://github.com/cnarans">Github</a></p>
-			<p><a href="https://www.facebook.com/colin.narans">Facebook</a></p>
+		
 	</body>
 </html>

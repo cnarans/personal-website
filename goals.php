@@ -1,3 +1,8 @@
+<?php 
+include 'functions.php'; 
+printNav($allPages, "goals.php");
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,16 +22,5 @@
 			<li>Develop an impressive portfolio of web development projects</li>
 		</ul>
 
-		<h4>Pages</h4>
-			<p><a href="index.html">-Home</a></p>
-			<p>-Goals</p>
-			<p><a href="dog.html">-My Furball</a></p>
-
-		<h4>Articles</h4>
-			<p><a href="ai.html">-The Future of AI</a></p>
-
-		<h4>My Profiles</h4>
-			<p><a href="https://github.com/cnarans">Github</a></p>
-			<p><a href="https://www.facebook.com/colin.narans">Facebook</a></p>
 	</body>
 </html>
