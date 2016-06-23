@@ -9,7 +9,9 @@ h1 {
 
   .main {
   	display: flex;
-  	background:grey;
+  	background:black;
+    color:green;
+    font-family:Courier;
   	flex-flow: column wrap;
   }
 

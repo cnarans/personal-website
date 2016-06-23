@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<?php include 'functions.php'; ?>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<title>The Web as a Medium</title>
 		<h1>The Web as a Medium</h1>
 		<p>Pages:
 			<?php 
-				include 'functions.php'; 
 				printNav($allPages, 1);
 			?>
 		</p>

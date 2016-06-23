@@ -4,8 +4,13 @@
 <html>
 	
 	<head>
-		<?php include 'functions.php'; ?>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<?php include 'functions.php'; 
+			if ($_GET["style"]=="alt"){ ?>
+				<link type="text/css" rel="stylesheet" href="alt.css"/>
+			<?php } else{ ?>
+				<link type="text/css" rel="stylesheet" href="style.css"/>
+			<?php }
+		?>
 		<title>Thoughts on What's Next for Artificial Intelligence</title>
 		
 	</head>
@@ -18,12 +23,12 @@
 					<p class = "social"><?php printSocial(); ?></p>
 				</div>
 				<div class = "links">
-					<p>Pages:
+					<p><u>Pages:</u><br><br>
 						<?php 
 							printNav($allPages, 1);
 						?>
 					</p>
-					<p>Articles:
+					<p><u>Articles:</u><br><br>
 						<?php 
 							printNav($articles, "ai.php");
 						?>

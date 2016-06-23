@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<?php include 'functions.php'; ?>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<title>Colin's Goals</title>
 		<h1>Colin's Goals</h1>
 		<p>Pages:
 			<?php 
-				include 'functions.php'; 
 				printNav($allPages, "goals.php");
 			?>
 		</p>

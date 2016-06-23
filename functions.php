@@ -30,12 +30,11 @@ array_push($articles, $article2 = new page("web.php", "The Web as a Medium"));
 function printNav($pages, $current){
 	foreach($pages as $page){
 		if($page->address==$current){
-			echo $page->name . "  ";
-			echo "<br>";
+			echo $page->name . "<br>";
 		}
 		else{
 			$page->printLink();
-			echo "  ";
+			echo "<br>";
 		}
 	}
 }
@@ -44,7 +43,7 @@ function printSocial(){
 	echo '<a href="https://www.facebook.com/colin.narans"><img src="fb.png" style="width:30px;height:30px;"></a>
 	<a href="https://www.facebook.com/colin.narans"><img src="twitter.png" style="width:30px;height:30px;"></a>
 	<a href="https://www.facebook.com/colin.narans"><img src="ln.png" style="width:30px;height:30px;"></a>
-	<a href="https://www.facebook.com/colin.narans"><img src="git.png" style="width:30px;height:30px;"></a>';
+	<a href="https://github.com/cnarans"><img src="git.png" style="width:30px;height:30px;"></a>';
 }
 
 ?>
