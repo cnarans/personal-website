@@ -12,6 +12,7 @@ h1 {
   	background:black;
     color:green;
     font-family:Courier;
+    font-size:10px;
   	flex-flow: column wrap;
   }
 
