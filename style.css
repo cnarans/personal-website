@@ -9,7 +9,7 @@ h1 {
 
   .main {
   	display: flex;
-  	background:grey;
+  	background:lightgray;
   	flex-flow: column wrap;
   }
 

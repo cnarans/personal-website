@@ -5,6 +5,7 @@
 	
 	<head>
 		<?php include 'functions.php'; 
+			$id = basename($_SERVER['PHP_SELF']);
 			if ($_GET["style"]=="alt"){ ?>
 				<link type="text/css" rel="stylesheet" href="alt.css"/>
 			<?php } else{ ?>
@@ -19,7 +20,16 @@
 		<div class= "wrapper">
 			<div class="left">
 				<div class = "corner">
-					<p class = "name">Colin Narans</p>
+					<p class = "name"><a href=
+					<?php
+						if($_GET["style"]=="alt"){
+							echo '"' . $id . '"';
+						}
+						else{
+							echo '"' . $id . "?style=alt" . '"';
+						}
+					?>
+					>Colin Narans</a></p>
 					<p class = "social"><?php printSocial(); ?></p>
 				</div>
 				<div class = "links">
