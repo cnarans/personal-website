@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,25 +9,43 @@
 				<link type="text/css" rel="stylesheet" href="style.css"/>
 			<?php }
 		?>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<title>Colin's Goals</title>
-		<h1>Colin's Goals</h1>
-		<p>
-			<?php printNav($allPages, $articles, $id); ?>
-		</p>
-	<body>
+	</head>
+		
+	<body class = "main">
+		<div class= "wrapper">
+			<div class="left">
+				<div class = "corner">
+					<p class = "name"><a href=
+					<?php
+						if($_GET["style"]=="alt"){
+							echo '"' . $id . '"';
+						}
+						else{
+							echo '"' . $id . "?style=alt" . '"';
+						}
+					?>
+					>Colin Narans</a></p>
+					<p class = "social"><?php printSocial(); ?></p>
+				</div>
+				<div class = "links">
+					<?php printNav($allPages, $articles, $id); ?>
+				</div>
+			</div>
+			<div class = "main">
+				<h1>Colin's Goals</h1>
+				<h2>Personal Goals</h2>
+				<ul>
+					<li>Get on regular schedule of exercise and sleep</li>
+					<li>Improve my karaoke skills</li>
+				</ul>
 
-		<h2>Personal Goals</h2>
-		<ul>
-			<li>Get on regular schedule of exercise and sleep</li>
-			<li>Improve my karaoke skills</li>
-		</ul>
-
-		<h2>Professional Goals</h2>
-		<ul>
-			<li>Improve my coding skills to the point where I can obtain a job in the field</li>
-			<li>Develop an impressive portfolio of web development projects</li>
-		</ul>
-
+				<h2>Professional Goals</h2>
+				<ul>
+					<li>Improve my coding skills to the point where I can obtain a job in the field</li>
+					<li>Develop an impressive portfolio of web development projects</li>
+				</ul>
+			</div>
+		</div>
 	</body>
 </html>

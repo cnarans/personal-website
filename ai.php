@@ -1,8 +1,5 @@
-
-
 <!DOCTYPE html>
 <html>
-	
 	<head>
 		<?php include 'functions.php'; 
 			$id = basename($_SERVER['PHP_SELF']);
@@ -13,7 +10,6 @@
 			<?php }
 		?>
 		<title>Thoughts on What's Next for Artificial Intelligence</title>
-		
 	</head>
 
 	<body class = "main">

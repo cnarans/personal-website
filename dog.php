@@ -12,16 +12,35 @@
 			<?php }
 		?>
 		<title>Rupert's Page</title>
-		<h1>Rupert's Page</h1>
-		<p>
-			<?php printNav($allPages, $articles, $id); ?>
-		</p>
 	</head>
-	<body>
-		<img src="dog.jpg" alt=This guy>
-		<img src="dog2.jpg">
-		<img src="dog3.jpg">
-		<img src="dog4.jpg">
-		<img src="dog5.jpg">
+	<body class = "main">
+		<div class= "wrapper">
+			<div class="left">
+				<div class = "corner">
+					<p class = "name"><a href=
+					<?php
+						if($_GET["style"]=="alt"){
+							echo '"' . $id . '"';
+						}
+						else{
+							echo '"' . $id . "?style=alt" . '"';
+						}
+					?>
+					>Colin Narans</a></p>
+					<p class = "social"><?php printSocial(); ?></p>
+				</div>
+				<div class = "links">
+					<?php printNav($allPages, $articles, $id); ?>
+				</div>
+			</div>
+			<div class = "main">
+				<h1>Rupert's Page</h1>
+				<img src="dog.jpg" alt=This guy>
+				<img src="dog2.jpg">
+				<img src="dog3.jpg">
+				<img src="dog4.jpg">
+				<img src="dog5.jpg">
+			</div>
+		</div>
 	</body>
 </html>
