@@ -20,20 +20,29 @@ $allPages = array();
 array_push($allPages, $home = new page("index.php", "Home"));
 array_push($allPages, $goals = new page("goals.php", "Goals"));
 array_push($allPages, $dog = new page("dog.php", "My Furball"));
-array_push($allPages, $github = new page("https://github.com/cnarans", "GitHub"));
-array_push($allPages, $facebook = new page("https://www.facebook.com/colin.narans", "Facebook"));
 
 $articles = array();
 array_push($articles, $article1 = new page("ai.php", "The Future of AI"));
 array_push($articles, $article2 = new page("web.php", "The Web as a Medium"));
 
-function printNav($pages, $current){
+function printNav($pages, $art, $current){
+	echo '<p>Pages</p><br>';
 	foreach($pages as $page){
 		if($page->address==$current){
 			echo $page->name . "<br>";
 		}
 		else{
 			$page->printLink();
+			echo "<br>";
+		}
+	}
+	echo '<p>Articles</p><br>';
+	foreach($art as $a){
+		if($a->address==$current){
+			echo $a->name . "<br>";
+		}
+		else{
+			$a->printLink();
 			echo "<br>";
 		}
 	}

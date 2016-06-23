@@ -33,16 +33,7 @@
 					<p class = "social"><?php printSocial(); ?></p>
 				</div>
 				<div class = "links">
-					<p><u>Pages:</u><br><br>
-						<?php 
-							printNav($allPages, 1);
-						?>
-					</p>
-					<p><u>Articles:</u><br><br>
-						<?php 
-							printNav($articles, "ai.php");
-						?>
-					</p>
+					<?php printNav($allPages, $articles, $id); ?>
 				</div>
 			</div>
 			<div class = "main">
