@@ -31,11 +31,11 @@
 			}
 			else{}
 		}
-		if($xCount>$oCount){
-			return 9;
-		}
-		elseif(strpos($state, "0")===false){
+		if(strpos($state, "0")===false){
 			return 4;
+		}
+		elseif($xCount>$oCount){
+			return 9;
 		}
 		else{
 			return 1;
