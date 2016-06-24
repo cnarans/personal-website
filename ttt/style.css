@@ -1,0 +1,29 @@
+body {
+	
+}
+
+.wrapper{
+	background:black;
+	display:flex;
+	flex-flow:column;
+	padding:20px;
+	justify-content:center;
+}
+
+.row{
+	display:flex;
+	justify-content:center;
+}
+
+.cell{
+	color:white;
+	display:flex;
+	width: 200px;
+  	height: 200px;
+	font-family:Courier;
+	font-size:100px;
+	background:black;
+	border:5px solid white;
+	justify-content:center;
+	align-items:center;
+}
