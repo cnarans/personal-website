@@ -1,3 +1,1 @@
-<?php
-	echo basename($_SERVER['PHP_SELF']);
-?>
+<a href="http://www.google.com">THIS IS A TEST LINK</a>

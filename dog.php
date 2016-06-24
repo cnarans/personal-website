@@ -33,7 +33,7 @@
 			</div>
 			<div class = "main">
 				<h1>Rupert's Page</h1>
-				<img src="dog.jpg" alt=This guy>
+				<img src="dog.jpg">
 				<img src="dog2.jpg">
 				<img src="dog3.jpg">
 				<img src="dog4.jpg">
