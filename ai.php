@@ -11,7 +11,6 @@
 		?>
 		<title>Thoughts on What's Next for Artificial Intelligence</title>
 	</head>
-
 	<body class = "main">
 		<div class= "wrapper">
 			<div class="left">

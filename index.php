@@ -11,7 +11,6 @@
 		?>
 		<title>Colin's Page</title>
 	</head>
-
 	<body class = "main">
 		<div class= "wrapper">
 			<div class="left">

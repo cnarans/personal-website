@@ -11,7 +11,6 @@
 		?>
 		<title>Colin's Goals</title>
 	</head>
-		
 	<body class = "main">
 		<div class= "wrapper">
 			<div class="left">

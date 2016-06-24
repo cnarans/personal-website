@@ -11,7 +11,6 @@
 		?>
 		<title>The Web as a Medium</title>
 	</head>
-
 	<body class = "main">
 		<div class= "wrapper">
 			<div class="left">

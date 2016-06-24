@@ -29,7 +29,7 @@ function printNav($pages, $art, $current){
 	echo '<p>Pages</p><br>';
 	foreach($pages as $page){
 		if($page->address==$current){
-			echo $page->name . "<br>";
+			echo $page->name . "<br><br>";
 		}
 		else{
 			$page->printLink();
@@ -39,7 +39,7 @@ function printNav($pages, $art, $current){
 	echo '<p>Articles</p><br>';
 	foreach($art as $a){
 		if($a->address==$current){
-			echo $a->name . "<br>";
+			echo $a->name . "<br><br>";
 		}
 		else{
 			$a->printLink();

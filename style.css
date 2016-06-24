@@ -3,25 +3,24 @@ h1 {
 }
 
 .wrapper {
-  display: flex; 
-  flex-flow: row;
+  display: flex;
+  flex-direction: row;
 }
 
   .main {
-  	display: flex;
+  	
   	background:lightgray;
-  	flex-flow: column wrap;
+  	
   }
 
   .corner {
-  	display:flex;
+  	display: flex;
   	background:cyan;
   	flex-flow:column;
   }
 
   .left {
-  	display:flex;
-  	flex-flow:column;
+  	
   }
 
   .links {
