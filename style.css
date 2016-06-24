@@ -8,7 +8,6 @@ h1 {
 }
 
   .main {
-  	
   	background:lightgray;
   	
   }
@@ -20,7 +19,6 @@ h1 {
   }
 
   .left {
-  	
   }
 
   .links {
@@ -33,10 +31,14 @@ h1 {
   .name {
   	font-size:24px;
   	display:flex;
-  	flex-flow:row nowrap;
+  	flex-flow:row;
   }
 
   .social {
   	display:flex;
   	flex-flow:row;
+  }
+
+  .article {
+  	padding:20px;
   }

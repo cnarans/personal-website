@@ -5,9 +5,9 @@
 	</head>
 	<body>
 		<h1>Choose your weapon</h1>
-		<a href="rps.php?weapon=rock"><img src="rock.jpg" style="width:200px;height:200px;"></a>
-		<a href="rps.php?weapon=paper"><img src="paper.png" style="width:200px;height:200px;"></a>
-		<a href="rps.php?weapon=scissors"><img src="scissors.jpg" style="width:200px;height:200px;"></a>
+		<a href="index.php?weapon=rock"><img src="rock.jpg" style="width:200px;height:200px;"></a>
+		<a href="index.php?weapon=paper"><img src="paper.png" style="width:200px;height:200px;"></a>
+		<a href="index.php?weapon=scissors"><img src="scissors.jpg" style="width:200px;height:200px;"></a>
 		<br>
 		<?php 
 		if($_GET["weapon"]){
