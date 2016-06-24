@@ -18,7 +18,6 @@
 			elseif($chance=="999"){
 				return 3;
 			}
-			else{}
 		}
 
 		$xCount = 0;
@@ -28,12 +27,15 @@
 				$xCount++;
 			}
 			elseif($state[$i]=="9"){
-				$yCount++;
+				$oCount++;
 			}
 			else{}
 		}
 		if($xCount>$oCount){
 			return 9;
+		}
+		elseif(strpos($state, "0")===false){
+			return 4;
 		}
 		else{
 			return 1;
@@ -43,7 +45,8 @@
 	function printSquare($state, $square, $turn){
 
 		if($state[$square]=="0"){
-			echo '<a href="http://www.google.com"><font color=black>#</font></a>';
+			$state[$square] = $turn;
+			echo '<a href="index.php?state=' . $state . '"><font color=black>#</font></a>';
 		}
 		elseif($state[$square]=="1"){
 			echo 'X';
@@ -52,5 +55,4 @@
 			echo 'O';
 		}
 	}
-	$x="110999000";
 ?>

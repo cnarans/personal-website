@@ -1,13 +1,15 @@
-body {
-	
+h1 {
+	font-size:60px;
 }
 
 .wrapper{
+	color:white;
 	background:black;
 	display:flex;
 	flex-flow:column;
 	padding:20px;
 	justify-content:center;
+	align-items:center;
 }
 
 .row{

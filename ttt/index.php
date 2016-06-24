@@ -15,6 +15,31 @@
 
 	<body>
 		<div class = "wrapper">
+			<h1>
+				<?php
+					if($turn==1){
+						echo "X's Turn";
+					}
+					elseif($turn==9){
+						echo "O's Turn";
+					}
+					elseif($turn==2){
+						echo "X WINS!<br>";
+						echo '<a href="index.php">Play Again?</a>';
+					}
+					elseif($turn==3){
+						echo "O WINS!<br>";
+						echo '<a href="index.php">Play Again?</a>';
+					}
+					elseif($turn==4){
+						echo "A Draw<br>";
+						echo '<a href="index.php">Play Again?</a>';
+					}
+					else{
+						echo "ERROR: THE ONLY WAY TO WIN IS NOT TO PLAY";
+					}
+				?>
+			</h1>
 			<div class = "row">
 				<div class = "cell">
 					<?php printSquare($pos, 0, $turn) ?>
