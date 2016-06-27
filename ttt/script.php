@@ -1,5 +1,10 @@
 <?php
 
+	#checkStatus determines the current status of the game
+	#
+	#$state = the current state of the game as determined by the query string
+	#
+	#returns an integer that corresponds to a game state
 	function checkStatus($state){
 		$win = array("","","","","","","","");
 		$win[0] = $state[0] . $state[1] . $state[2];
@@ -42,6 +47,12 @@
 		}
 	}
 
+	#prints a square of the game board with the correct character and link
+	#
+	#$state = current state of the game as determined by the query string
+	#$square = the square being printed
+	#$turn = current players turn
+	#
 	function printSquare($state, $square, $turn){
 
 		if($state[$square]=="0"){
@@ -56,7 +67,20 @@
 		}
 	}
 
-	function printState($turn){
+	#prints a message indicating the current state of the game
+	#
+	#$state = current state of the game as determined by the query string
+	#
+	function printState($state){
+		if($state[9]==1){
+			echo '<a href="index.php">Play against a human instead</a><br>';
+		}
+		else{
+			$coin = rand(0,1);
+			if($coin==0){$coin=9;}
+			echo '<a href="index.php?state=0000000002' . $coin . '">Play against the computer instead</a><br>';
+		}
+		$turn = checkStatus($state);
 		if($turn==1){
 			echo "X's Turn";
 		}
@@ -65,18 +89,67 @@
 		}
 		elseif($turn==2){
 			echo "X WINS!<br>";
-			echo '<a href="index.php">Play Again?</a>';
+			echo '<a href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
 		}
 		elseif($turn==3){
 			echo "O WINS!<br>";
-			echo '<a href="index.php">Play Again?</a>';
+			echo '<a href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
 		}
 		elseif($turn==4){
 			echo "A Draw<br>";
-			echo '<a href="index.php">Play Again?</a>';
+			echo '<a href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
 		}
 		else{
 			echo "ERROR: THE ONLY WAY TO WIN IS NOT TO PLAY";
 		}
 	}
+
+	function aiMove($state){
+		echo "tripped aiMove";
+		$xo = $state[10];
+		if($xo==1){
+			$win = 2;
+			$lose = 3;
+			$other = 9;
+		}
+		else{
+			$win = 3;
+			$lose = 2;
+			$other = 1;
+		}
+		$moves = [];
+		for($i=0;$i<9;$i++){
+			if($state[$i]==0){
+				array_push($moves, $i);
+			}
+
+		}
+		if(in_array(4, $moves)){
+			$state[4]=$xo;
+			return $state;
+		}
+		else{
+			foreach($moves as $move){
+				$try = $state;
+				$try[$move]=$xo;
+				if(checkStatus($try)==$win){
+					return $try;
+				}
+				$try[$move]=$other;
+				if(checkStatus($try)==$lose){
+					$try[$move]=$xo;
+					return $try;
+				}
+			}
+			foreach($moves as $move){
+				if($state[$move]==0&&($move==0||$move==2||$move==6||$move==8)){
+					$state[$move]=$xo;
+					return $state;
+				}
+			}
+		}
+		$state[$moves[rand(0,count($moves)-1)]] = $xo;
+		return $state;
+	}
+#	echo aiMove("00001000009");
 ?>

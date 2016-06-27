@@ -3,12 +3,17 @@
 	<head>
 		<meta charset="utf-8"/>
 		<?php include 'script.php';
-			$pos = "000000000";
 			if($_GET["state"]){
 				$pos = $_GET["state"];
 			}
-			else{}
+			else{
+				$pos = "00000000000";
+			}
 			$turn = checkStatus($pos);
+			if($pos[9]==2&&$pos[10]==$turn){
+				$pos = aiMove($pos);
+				$turn = checkStatus($pos);
+			}
 		?>
 		<title>Tic-Tac-Toe</title>
 		<link type="text/css" rel="stylesheet" href="style.css"/>
@@ -18,7 +23,7 @@
 		<div class = "wrapper">
 			<h1>
 				<?php
-					printState($turn);
+					printState($pos);
 				?>
 			</h1>
 			<div class = "row">
