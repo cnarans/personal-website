@@ -46,13 +46,37 @@
 
 		if($state[$square]=="0"){
 			$state[$square] = $turn;
-			echo '<a href="index.php?state=' . $state . '"><font color=black>#</font></a>';
+			echo '<a style = "color:black" href="index.php?state=' . $state . '">#</a>';
 		}
 		elseif($state[$square]=="1"){
 			echo 'X';
 		}
 		else{
 			echo 'O';
+		}
+	}
+
+	function printState($turn){
+		if($turn==1){
+			echo "X's Turn";
+		}
+		elseif($turn==9){
+			echo "O's Turn";
+		}
+		elseif($turn==2){
+			echo "X WINS!<br>";
+			echo '<a href="index.php">Play Again?</a>';
+		}
+		elseif($turn==3){
+			echo "O WINS!<br>";
+			echo '<a href="index.php">Play Again?</a>';
+		}
+		elseif($turn==4){
+			echo "A Draw<br>";
+			echo '<a href="index.php">Play Again?</a>';
+		}
+		else{
+			echo "ERROR: THE ONLY WAY TO WIN IS NOT TO PLAY";
 		}
 	}
 ?>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8"/>
 		<?php include 'script.php';
 			$pos = "000000000";
 			if($_GET["state"]){
@@ -17,27 +18,7 @@
 		<div class = "wrapper">
 			<h1>
 				<?php
-					if($turn==1){
-						echo "X's Turn";
-					}
-					elseif($turn==9){
-						echo "O's Turn";
-					}
-					elseif($turn==2){
-						echo "X WINS!<br>";
-						echo '<a href="index.php">Play Again?</a>';
-					}
-					elseif($turn==3){
-						echo "O WINS!<br>";
-						echo '<a href="index.php">Play Again?</a>';
-					}
-					elseif($turn==4){
-						echo "A Draw<br>";
-						echo '<a href="index.php">Play Again?</a>';
-					}
-					else{
-						echo "ERROR: THE ONLY WAY TO WIN IS NOT TO PLAY";
-					}
+					printState($turn);
 				?>
 			</h1>
 			<div class = "row">
