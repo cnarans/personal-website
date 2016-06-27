@@ -1,8 +1,15 @@
+<?php 
+session_start();
+include 'script.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<?php include 'script.php';
+		<?php 
+			print_r($_SESSION);
 			if($_GET["state"]){
 				$pos = $_GET["state"];
 			}
