@@ -78,7 +78,7 @@
 	function printState($state){
 		$coin = rand(0,1);
 		if($coin==0){$coin=9;}
-		if(empty($_SESSION["xwin"])){
+		if(empty($_SESSION)){
 			$_SESSION["xwin"]=0;
 			$_SESSION["owin"]=0;
 			$_SESSION["hwin"]=0;
