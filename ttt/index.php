@@ -8,6 +8,10 @@ include 'script.php';
 <html>
 	<head>
 		<meta charset="utf-8"/>
+		<title>Tic-Tac-Toe</title>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+	</head>
+	<body>
 		<?php 
 			print_r($_SESSION);
 			if($_GET["state"]){
@@ -22,11 +26,6 @@ include 'script.php';
 				$turn = checkStatus($pos);
 			}
 		?>
-		<title>Tic-Tac-Toe</title>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
-	</head>
-
-	<body>
 		<div class = "wrapper">
 			<h1>
 				<?php
