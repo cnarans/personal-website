@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8"/>
 		<?php include 'functions.php'; 
 			$id = basename($_SERVER['PHP_SELF']);
 			if ($_GET["style"]=="alt"){ ?>
@@ -33,11 +34,11 @@
 			</div>
 			<div class = "main">
 				<h1>Rupert's Page</h1>
-				<img src="dog.jpg">
-				<img src="dog2.jpg">
-				<img src="dog3.jpg">
-				<img src="dog4.jpg">
-				<img src="dog5.jpg">
+				<img src="dog.jpg" alt="dog pic">
+				<img src="dog2.jpg" alt="dog pic">
+				<img src="dog3.jpg" alt="dog pic">
+				<img src="dog4.jpg" alt="dog pic">
+				<img src="dog5.jpg" alt="dog pic">
 			</div>
 		</div>
 	</body>

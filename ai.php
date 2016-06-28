@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8"/>
 		<?php include 'functions.php'; 
 			$id = basename($_SERVER['PHP_SELF']);
 			if ($_GET["style"]=="alt"){ ?>

@@ -24,6 +24,7 @@ array_push($allPages, $dog = new page("dog.php", "My Furball"));
 $articles = array();
 array_push($articles, $article1 = new page("ai.php", "The Future of AI"));
 array_push($articles, $article2 = new page("web.php", "The Web as a Medium"));
+array_push($articles, $article2 = new page("tttarticle.php", "Programming Tic-Tac-Toe"));
 
 function printNav($pages, $art, $current){
 	echo '<p>Pages</p><br>';
