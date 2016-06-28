@@ -1,4 +1,7 @@
 <?php
+	#
+	#Tests all nine possible combinations for Rock/Paper/Scissors in game() function
+	#
 	include 'script.php';
 
 	echo "\nTesting Rock/Paper/Scissors\n";

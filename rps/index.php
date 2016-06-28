@@ -14,9 +14,8 @@
 		<br>
 		<?php 
 			if($_GET["weapon"]){
-				$weapon = $_GET["weapon"];
 				$aiweapon = aiWeapon();
-				echo game($weapon, $aiweapon);
+				echo game($_GET["weapon"], $aiweapon);
 			}
 		?>
 	</body>
