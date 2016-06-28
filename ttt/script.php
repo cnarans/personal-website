@@ -83,7 +83,7 @@
 			$_SESSION["owin"]=0;
 			$_SESSION["hwin"]=0;
 			$_SESSION["cwin"]=0;
-			$_SESSION["2draw"]=0;
+			$_SESSION["hdraw"]=0;
 			$_SESSION["cdraw"]=0;
 		}
 		if($state[9]==2){

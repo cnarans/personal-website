@@ -13,7 +13,9 @@ include 'script.php';
 	</head>
 	<body>
 		<?php 
-			print_r($_SESSION);
+			if($_GET["reset"]){
+				$_SESSION=null;
+			}
 			if($_GET["state"]){
 				$pos = $_GET["state"];
 			}
@@ -64,6 +66,17 @@ include 'script.php';
 				<div class = "cell">
 					<?php printSquare($pos, 8, $turn) ?>
 				</div>
+			</div>
+			<div class = "results">
+				<h2>Records <a href="index.php?reset=true">(Reset Results)</a></h2>
+				<p>In two-player games:</p>
+				<p>X has won <?php echo $_SESSION["xwin"]; ?> times</p>
+				<p>O has won <?php echo $_SESSION["owin"]; ?> times</p>
+				<p>There has been a draw <?php echo $_SESSION["hdraw"]; ?> times</p>
+				<p>Versus the computer:</p>
+				<p>The human has won <?php echo $_SESSION["hwin"]; ?> times</p>
+				<p>The computer has won <?php echo $_SESSION["cwin"]; ?> times</p>
+				<p>There has been a draw <?php echo $_SESSION["cdraw"]; ?> times</p>
 			</div>
 		</div>
 	</body>
