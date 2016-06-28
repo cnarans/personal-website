@@ -24,9 +24,13 @@ array_push($allPages, $dog = new page("dog.php", "My Furball"));
 $articles = array();
 array_push($articles, $article1 = new page("ai.php", "The Future of AI"));
 array_push($articles, $article2 = new page("web.php", "The Web as a Medium"));
-array_push($articles, $article2 = new page("tttarticle.php", "Programming Tic-Tac-Toe"));
+array_push($articles, $article3 = new page("tttarticle.php", "Programming Tic-Tac-Toe"));
 
-function printNav($pages, $art, $current){
+$projects = array();
+array_push($projects, $rps = new page("/rps", "Rock-Paper-Scissors"));
+array_push($projects, $ttt = new page("/ttt", "Tic-Tac-Toe"));
+
+function printNav($pages, $art, $projects, $current){
 	echo '<p>Pages</p><br>';
 	foreach($pages as $page){
 		if($page->address==$current){
@@ -39,6 +43,17 @@ function printNav($pages, $art, $current){
 	}
 	echo '<p>Articles</p><br>';
 	foreach($art as $a){
+		if($a->address==$current){
+			echo $a->name . "<br><br>";
+		}
+		else{
+			$a->printLink();
+			echo "<br>";
+		}
+	}
+
+	echo '<p>Projects</p><br>';
+	foreach($projects as $a){
 		if($a->address==$current){
 			echo $a->name . "<br><br>";
 		}
