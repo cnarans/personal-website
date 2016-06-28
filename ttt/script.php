@@ -3,8 +3,12 @@
 	#checkStatus determines the current status of the game
 	#
 	#$state = the current state of the game as determined by the query string
+	#The first 9 digits of $state indicate the status of a game square
+	#0=blank; 1=X; 9=O
+	#The last two digits indicates 1/2 for human/computer game and 1/2 for computer's pieces X/O
 	#
 	#returns an integer that corresponds to a game state
+	#1=X's turn; 9=O's turn; 2=X win; 3=O win; 4=draw
 	function checkStatus($state){
 		$win = array("","","","","","","","");
 		$win[0] = $state[0] . $state[1] . $state[2];
@@ -157,7 +161,6 @@
 			if($state[$i]==0){
 				array_push($moves, $i);
 			}
-
 		}
 		if(in_array(4, $moves)){
 			$state[4]=$xo;

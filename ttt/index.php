@@ -14,7 +14,7 @@ include 'script.php';
 				$pos = $_GET["state"];
 			}
 			else{
-				$pos = "00000000000";
+				$pos = "00000000011";
 			}
 			$turn = checkStatus($pos);
 			if($pos[9]==2&&$pos[10]==$turn){
