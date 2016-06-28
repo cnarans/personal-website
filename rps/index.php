@@ -1,51 +1,23 @@
+<?php include 'script.php' ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8"/>
 		<title>Rock, Paper, Scissors</title>
 	</head>
 	<body>
 		<h1>Choose your weapon</h1>
-		<a href="index.php?weapon=rock"><img src="rock.jpg" style="width:200px;height:200px;"></a>
-		<a href="index.php?weapon=paper"><img src="paper.png" style="width:200px;height:200px;"></a>
-		<a href="index.php?weapon=scissors"><img src="scissors.jpg" style="width:200px;height:200px;"></a>
+		<a href="index.php?weapon=rock"><img src="rock.jpg" alt="rock pic" style="width:200px;height:200px;"></a>
+		<a href="index.php?weapon=paper"><img src="paper.png" alt="paper pic" style="width:200px;height:200px;"></a>
+		<a href="index.php?weapon=scissors"><img src="scissors.jpg" alt="scissors pic" style="width:200px;height:200px;"></a>
 		<br>
 		<?php 
-		if($_GET["weapon"]){
-			$weapons = array("rock", "paper", "scissors");
-			$weapon = $_GET["weapon"];
-			$aiweapon = $weapons[rand(0,2)];
-
-			if($weapon==$aiweapon){
-				echo "You both selected " . $weapon;
+			if($_GET["weapon"]){
+				$weapon = $_GET["weapon"];
+				$aiweapon = aiWeapon();
+				echo game($weapon, $aiweapon);
 			}
-			elseif($weapon=="rock"){
-				if($aiweapon=="scissors"){
-					echo "YOU WIN! " . $weapon . " defeats " . $aiweapon;
-				}
-				else{
-					echo "LOSER! " . $weapon . " loses to " . $aiweapon;
-				}
-			}
-			elseif($weapon=="paper"){
-				if($aiweapon=="rock"){
-					echo "YOU WIN! " . $weapon . " defeats " . $aiweapon;
-				}
-				else{
-					echo "LOSER! " . $weapon . " loses to " . $aiweapon;
-				}
-			}
-			elseif($weapon=="scissors"){
-				if($aiweapon=="paper"){
-					echo "YOU WIN! " . $weapon . " defeats " . $aiweapon;
-				}
-				else{
-					echo "LOSER! " . $weapon . " loses to " . $aiweapon;
-				}
-			}
-			else{
-				echo "You screwed something up.";
-			}
-		} 
 		?>
 	</body>
 
