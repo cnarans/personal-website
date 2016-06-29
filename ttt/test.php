@@ -1,7 +1,8 @@
 <?php
 	include 'script.php';
+	
 	#
-	#tests the functionality of the checkStatus() function in script.php
+	# tests the functionality of the checkStatus() function in script.php
 	#
 
 	echo "\nTesting Tic-Tac-Toe function checkStatus()\n";

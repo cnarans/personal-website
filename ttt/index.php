@@ -12,6 +12,7 @@ include 'script.php';
 		<link type="text/css" rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
+		<header
 		<?php 
 			if($_GET["reset"]){
 				$_SESSION=null;
@@ -31,7 +32,7 @@ include 'script.php';
 		<div class = "wrapper">
 			<h1>
 				<?php
-					printState($pos);
+					#printState($pos);
 				?>
 			</h1>
 			<div class = "row">

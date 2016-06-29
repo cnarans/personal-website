@@ -1,16 +1,16 @@
 <?php
 
-	#checkStatus determines the current status of the game
+	# checkStatus determines the current status of the game
 	#
-	#$state = the current state of the game as determined by the query string
-	#The first 9 digits of $state indicate the status of a game square
-	#0=blank; 1=X; 9=O
-	#The last two digits indicates 1/2 for human/computer game and 1/2 for computer's pieces X/O
+	# $state = the current state of the game as determined by the query string
+	# The first 9 digits of $state indicate the status of a game square
+	# 0=blank; 1=X; 9=O
+	# The last two digits indicates 1/2 for human/computer game and 1/2 for computer's pieces X/O
 	#
-	#returns an integer that corresponds to a game state
-	#1=X's turn; 9=O's turn; 2=X win; 3=O win; 4=draw
+	# returns an integer that corresponds to a game state
+	# 1=X's turn; 9=O's turn; 2=X win; 3=O win; 4=draw
 	function checkStatus($state){
-		$win = array("","","","","","","","");
+		$win = array();
 		$win[0] = $state[0] . $state[1] . $state[2];
 		$win[1] = $state[3] . $state[4] . $state[5];
 		$win[2] = $state[6] . $state[7] . $state[8];
@@ -38,7 +38,6 @@
 			elseif($state[$i]=="9"){
 				$oCount++;
 			}
-			else{}
 		}
 		if(strpos($state, "0")===false){
 			return 4;
@@ -51,6 +50,25 @@
 		}
 	}
 
+	function checkTurn($state){
+		$xCount = 0;
+		$oCount = 0;
+		for($i=0; $i<9; $i++){
+			if($state[$i]=="1"){
+				$xCount++;
+			}
+			elseif($state[$i]=="9"){
+				$oCount++;
+			}
+		}
+		if($xCount>$oCount){
+			return 9;
+		}
+		else{
+			return 1;
+		}	
+	}
+
 	#prints a square of the game board with the correct character and link
 	#
 	#$state = current state of the game as determined by the query string
@@ -61,7 +79,7 @@
 
 		if($state[$square]=="0"){
 			$state[$square] = $turn;
-			echo '<a style = "color:black" href="index.php?state=' . $state . '">#</a>';
+			echo '<a style = "color:green" href="index.php?state=' . $state . '">#</a>';
 		}
 		elseif($state[$square]=="1"){
 			echo 'X';
@@ -145,7 +163,11 @@
 	}
 
 	function aiMove($state){
+		# $xo indicates if the computer is X or O
 		$xo = $state[10];
+
+		# This block set $other to the X or O of the opponent
+		# $win and $lose stores  the values returned by checkStatus to see if the player has won or lost
 		if($xo==1){
 			$win = 2;
 			$lose = 3;
@@ -156,16 +178,23 @@
 			$lose = 2;
 			$other = 1;
 		}
+
+		# This block checks for each empty square and loads it into an array of valid moves
 		$moves = [];
 		for($i=0;$i<9;$i++){
 			if($state[$i]==0){
 				array_push($moves, $i);
 			}
 		}
+
+		# First it checks to see if the center square is available
 		if(in_array(4, $moves)){
 			$state[4]=$xo;
 			return $state;
 		}
+
+		# Then it checks to see if any square will cause a victory or loss
+		# If not, it selects a corner square
 		else{
 			foreach($moves as $move){
 				$try = $state;
@@ -186,6 +215,8 @@
 				}
 			}
 		}
+
+		# Finally, if all other options are taken, it selects a random square
 		$state[$moves[rand(0,count($moves)-1)]] = $xo;
 		return $state;
 	}
