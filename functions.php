@@ -56,9 +56,9 @@ function printNav($pages, $art, $projects, $current){
 
 function printSocial(){
 	echo '<a href="https://www.facebook.com/colin.narans"><img src="fb.png" alt="fb icon" style="width:30px;height:30px;"></a>
-	<a href="https://www.facebook.com/colin.narans"><img src="twitter.png" alt="twitter icon" style="width:30px;height:30px;"></a>
-	<a href="https://www.facebook.com/colin.narans"><img src="ln.png" alt="ln icon" style="width:30px;height:30px;"></a>
-	<a href="https://github.com/cnarans"><img src="git.png" alt="git icon" style="width:30px;height:30px;"></a>';
+	<a href="https://twitter.com/Colin_T_N"><img src="twitter.png" alt="twitter icon" style="width:30px;height:30px;"></a>
+	<a href="https://www.linkedin.com/in/colin-narans-377318a9"><img src="ln.png" alt="ln icon" style="width:30px;height:30px;"></a>
+	<a href="https://github.com/cnarans"><img src="github.png" alt="git icon" style="width:30px;height:30px;"></a>';
 }
 
 ?>

@@ -1,6 +1,6 @@
 body {
-	margin:0px;
-	padding:0px;
+	margin:0 !important;
+	padding:0 !important;
 	background:#326F3A;
 }
 
@@ -10,12 +10,18 @@ a.none {
 }
 
 .top {
+	margin:0 !important;
+	padding:0 !important;
 	display:flex;
 	font-family:Arial;
 	background:#4AA555;
 	width:100vw;
 	font-size:5vmin;
 	align-items:center;
+}
+
+.arrow {
+	padding-left:10px;
 }
 
 .status {
@@ -36,7 +42,8 @@ body a{
 }
 
 .wrapper{
-	margin-top:auto;
+	margin:0 !important;
+	padding:0 !important;
 	width: 100%;
     height: 100%;
     margin: 0;
@@ -44,7 +51,7 @@ body a{
 	display:flex;
 	flex-flow:column;
 	padding:10px;
-	justify-content:center;
+	justify-content:flex-start;
 	align-items: center;
 }
 

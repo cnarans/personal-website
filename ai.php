@@ -4,6 +4,7 @@ include 'top.php';
 ?>
 				<div class = "article">
 					<h1>Thoughts on What's Next for Articial Intelligence</h1>
+					<h6>June 21st, 2016</h6>
 
 					<h2><a href="http://www.wsj.com/articles/whats-next-for-artificial-intelligence-1465827619?href=">Original Article from The Wall Street Journal</a></h2>
 

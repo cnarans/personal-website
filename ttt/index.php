@@ -31,7 +31,7 @@ include 'script.php';
 		?>
 		<div class = "wrapper">
 			<div class="top">
-				<div><a href="../"><img src="White_left_arrow.svg" alt="back arrow"></a></div>
+				<div class = "arrow"><a href="../"><img src="White_left_arrow.svg" alt="back arrow"></a></div>
 				<div class = "status"><?php
 					printState($pos);
 				?></div>

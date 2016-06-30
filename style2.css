@@ -1,3 +1,8 @@
+body {
+	margin: 0 !important;
+    padding: 0 !important;
+}
+
 .wrapper{
 	display:flex;
 }
@@ -16,11 +21,20 @@
 
 .main h1{
 	color:#B66050;
+	margin-bottom:5px;
+}
+
+.main h6{
+	color:gray;
+	margin-top:5px;
 }
 
 .corner{
 	background:#E6FFF9;
-	height:20vmin;
+	height:20vh;
+	display:flex;
+	flex-flow:column;
+	justify-content: space-between;
 }
 
 .corner .name a{
@@ -32,7 +46,7 @@
 
 .links{
 	background:#13181E;
-	height:80vmin;
+	height:80vh;
 	color:white;
 	font-family:sans-serif;
 }
