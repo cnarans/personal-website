@@ -10,8 +10,14 @@ class page{
 		$this->name = $name;
 	}
 
-	function printLink(){
-		echo "<a href=\"$this->address\">$this->name</a>";
+	function printLink($location){
+		if($location!=$this->address){
+			echo '<a href="' . $this->address . '">' . $this->name . '</a>';
+		}
+		else{
+			echo '<span class="links--selected">' . $this->name . '</span>';
+			//echo "COOKIES";
+		}
 	}
 
 }
@@ -31,36 +37,20 @@ array_push($projects, $rps = new page("/rps", "Rock-Paper-Scissors"));
 array_push($projects, $ttt = new page("/ttt", "Tic-Tac-Toe"));
 
 function printNav($pages, $art, $projects, $current){
-	echo '<p>Pages</p><br>';
-	foreach($pages as $page){
-		if($page->address==$current){
-			echo $page->name . "<br><br>";
-		}
-		else{
-			$page->printLink();
-			echo "<br>";
-		}
+	echo '<p class = "category">Pages</p>';
+	foreach($pages as $page){		
+		$page->printLink($current);
+		echo "<br>";
 	}
-	echo '<p>Articles</p><br>';
+	echo '<p class = "category">Articles</p>';
 	foreach($art as $a){
-		if($a->address==$current){
-			echo $a->name . "<br><br>";
-		}
-		else{
-			$a->printLink();
-			echo "<br>";
-		}
+		$a->printLink($current);
+		echo "<br>";
 	}
-
-	echo '<p>Projects</p><br>';
+	echo '<p class = "category">Projects</p>';
 	foreach($projects as $a){
-		if($a->address==$current){
-			echo $a->name . "<br><br>";
-		}
-		else{
-			$a->printLink();
-			echo "<br>";
-		}
+		$a->printLink($current);
+		echo "<br>";
 	}
 }
 

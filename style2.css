@@ -37,8 +37,17 @@
 	font-family:sans-serif;
 }
 
+.links .category{
+	text-decoration:underline;
+}
+
 .links a{
 	text-decoration:none;
 	color:white;
 	font-family:sans-serif;
+}
+
+.links--selected{
+	text-decoration:none;
+	color:darkgray;
 }
