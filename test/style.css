@@ -1,0 +1,24 @@
+.wrapper{
+	display:flex;
+}
+
+.left{
+	display:flex;
+	flex-flow:column;
+	width:20vw;
+}
+
+.main{
+	background:grey;
+	width:80vw;
+}
+
+.corner{
+	background:blue;
+	height:20vmin;
+}
+
+.side{
+	background:green;
+	height:80vmin;
+}

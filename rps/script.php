@@ -12,32 +12,32 @@
 	#$hweapon = the human weapon choice
 	#$aiweapon = the computer weapon choice
 	#
-	function game($hweapon, $aiweapon){
-			if($hweapon==$aiweapon){
-				return "You both selected " . $hweapon;
+	function game($weapon1, $weapon2){
+			if($weapon1==$weapon2){
+				return "You both selected " . $weapon1;
 			}
-			elseif($hweapon=="rock"){
-				if($aiweapon=="scissors"){
-					return "YOU WIN! " . $hweapon . " defeats " . $aiweapon;
+			elseif($weapon1=="rock"){
+				if($weapon2=="scissors"){
+					return "YOU WIN! " . $weapon1 . " defeats " . $weapon2;
 				}
 				else{
-					return "LOSER! " . $hweapon . " loses to " . $aiweapon;
+					return "LOSER! " . $weapon1 . " loses to " . $weapon2;
 				}
 			}
-			elseif($hweapon=="paper"){
-				if($aiweapon=="rock"){
-					return "YOU WIN! " . $hweapon . " defeats " . $aiweapon;
+			elseif($weapon1=="paper"){
+				if($weapon2=="rock"){
+					return "YOU WIN! " . $weapon1 . " defeats " . $weapon2;
 				}
 				else{
-					return "LOSER! " . $hweapon . " loses to " . $aiweapon;
+					return "LOSER! " . $weapon1 . " loses to " . $weapon2;
 				}
 			}
-			elseif($hweapon=="scissors"){
-				if($aiweapon=="paper"){
-					return "YOU WIN! " . $hweapon . " defeats " . $aiweapon;
+			elseif($weapon1=="scissors"){
+				if($weapon2=="paper"){
+					return "YOU WIN! " . $weapon1 . " defeats " . $weapon2;
 				}
 				else{
-					return "LOSER! " . $hweapon . " loses to " . $aiweapon;
+					return "LOSER! " . $weapon1 . " loses to " . $weapon2;
 				}
 			}
 			else{

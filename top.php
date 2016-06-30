@@ -7,7 +7,7 @@
 			if ($_GET["style"]=="alt"){ ?>
 				<link type="text/css" rel="stylesheet" href="alt.css"/>
 			<?php } else{ ?>
-				<link type="text/css" rel="stylesheet" href="style.css"/>
+				<link type="text/css" rel="stylesheet" href="style2.css"/>
 			<?php }
 		?>
 		<title><?php echo $title; ?></title>

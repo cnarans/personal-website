@@ -12,7 +12,6 @@ include 'script.php';
 		<link type="text/css" rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
-		<header
 		<?php 
 			if($_GET["reset"]){
 				$_SESSION=null;
@@ -23,18 +22,20 @@ include 'script.php';
 			else{
 				$pos = "00000000011";
 			}
-			$turn = checkStatus($pos);
+			$turn = checkTurn($pos);
+			//$endgame = checkStatus($pos);
 			if($pos[9]==2&&$pos[10]==$turn){
 				$pos = aiMove($pos);
-				$turn = checkStatus($pos);
+				$turn = checkTurn($pos);
 			}
 		?>
 		<div class = "wrapper">
-			<h1>
-				<?php
-					#printState($pos);
-				?>
-			</h1>
+			<div class="top">
+				<div><a href="../"><img src="White_left_arrow.svg" alt="back arrow"></a></div>
+				<div class = "status"><?php
+					printState($pos);
+				?></div>
+			</div>
 			<div class = "row">
 				<div class = "cell">
 					<?php printSquare($pos, 0, $turn) ?>
@@ -68,16 +69,10 @@ include 'script.php';
 					<?php printSquare($pos, 8, $turn) ?>
 				</div>
 			</div>
-			<div class = "results">
-				<h2>Records <a href="index.php?reset=true">(Reset Results)</a></h2>
-				<p>In two-player games:</p>
-				<p>X has won <?php echo $_SESSION["xwin"]; ?> times</p>
-				<p>O has won <?php echo $_SESSION["owin"]; ?> times</p>
-				<p>There has been a draw <?php echo $_SESSION["hdraw"]; ?> times</p>
-				<p>Versus the computer:</p>
-				<p>The human has won <?php echo $_SESSION["hwin"]; ?> times</p>
-				<p>The computer has won <?php echo $_SESSION["cwin"]; ?> times</p>
-				<p>There has been a draw <?php echo $_SESSION["cdraw"]; ?> times</p>
+			<h2><?php playerSwitch($pos[9]); ?></h2>
+			<div class = "bottom">
+				<h2><a href="index.php?reset=true">(Reset Records)</a></h2>
+				<?php printRecords($pos[9]); ?>
 			</div>
 		</div>
 	</body>

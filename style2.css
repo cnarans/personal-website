@@ -1,0 +1,44 @@
+.wrapper{
+	display:flex;
+}
+
+.left{
+	display:flex;
+	flex-flow:column;
+	width:20vw;
+}
+
+.main{
+	background:#d6d6d6;
+	width:80vw;
+	font-family:sans-serif;
+}
+
+.main h1{
+	color:#B66050;
+}
+
+.corner{
+	background:#E6FFF9;
+	height:20vmin;
+}
+
+.corner .name a{
+	color:#13181E;
+	text-decoration:none;
+	font-family:sans-serif;
+	font-size:2vw;
+}
+
+.links{
+	background:#13181E;
+	height:80vmin;
+	color:white;
+	font-family:sans-serif;
+}
+
+.links a{
+	text-decoration:none;
+	color:white;
+	font-family:sans-serif;
+}

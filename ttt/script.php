@@ -28,28 +28,18 @@
 				return 3;
 			}
 		}
-
-		$xCount = 0;
-		$oCount = 0;
-		for($i=0; $i<9; $i++){
-			if($state[$i]=="1"){
-				$xCount++;
-			}
-			elseif($state[$i]=="9"){
-				$oCount++;
-			}
-		}
 		if(strpos($state, "0")===false){
 			return 4;
 		}
-		elseif($xCount>$oCount){
-			return 9;
-		}
 		else{
-			return 1;
+			return 5;
 		}
 	}
 
+	# checkTurn returns a 1 if it is X's turn and 9 for O's turn
+	#
+	# $state = the current state of the game as determined by the query string
+	#
 	function checkTurn($state){
 		$xCount = 0;
 		$oCount = 0;
@@ -69,6 +59,16 @@
 		}	
 	}
 
+	function turnStatus($state){
+		$result = checkStatus($state);
+		if($result!=5){
+			return $result;
+		}
+		else{
+			return checkTurn($state);
+		}
+	}
+
 	#prints a square of the game board with the correct character and link
 	#
 	#$state = current state of the game as determined by the query string
@@ -79,7 +79,7 @@
 
 		if($state[$square]=="0"){
 			$state[$square] = $turn;
-			echo '<a style = "color:green" href="index.php?state=' . $state . '">#</a>';
+			echo '<a style = "color:#4AA555" href="index.php?state=' . $state . '">#</a>';
 		}
 		elseif($state[$square]=="1"){
 			echo 'X';
@@ -104,20 +104,16 @@
 			$_SESSION["hdraw"]=0;
 			$_SESSION["cdraw"]=0;
 		}
-		if($state[9]==2){
-			echo '<a href="index.php">Play against a human instead</a><br>';
-		}
-		else{
-			echo '<a href="index.php?state=0000000002' . $coin . '">Play against the computer instead</a><br>';
-		}
-		$turn = checkStatus($state);
-		if($turn==1){
+		
+		$endgame = checkStatus($state);
+		$turn = checkTurn($state);
+		if($turn==1&&$endgame==5){
 			echo "X's Turn";
 		}
-		elseif($turn==9){
+		elseif($turn==9&&$endgame==5){
 			echo "O's Turn";
 		}
-		elseif($turn==2){
+		elseif($endgame==2){
 			if($state[9]==2){
 				if($state[10]==1){
 					$_SESSION["cwin"]++;
@@ -130,9 +126,9 @@
 				$_SESSION["xwin"]++;
 			}
 			echo "X WINS!<br>";
-			echo '<a href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
+			echo '<a class="none"href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
 		}
-		elseif($turn==3){
+		elseif($endgame==3){
 			if($state[9]==2){
 				if($state[10]==9){
 					$_SESSION["cwin"]++;
@@ -147,7 +143,7 @@
 			echo "O WINS!<br>";
 			echo '<a href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
 		}
-		elseif($turn==4){
+		elseif($endgame==4){
 			if($state[9]==2){
 				$_SESSION["cdraw"]++;
 			}
@@ -159,6 +155,22 @@
 		}
 		else{
 			echo "ERROR: THE ONLY WAY TO WIN IS NOT TO PLAY";
+		}
+	}
+
+	# playerSwitch print a link that allows the user to switch between human
+	# and computer opponents
+	# 
+	# $player indicates the current opponenet is 1 = Human; 2 = Computer
+	#
+	function playerSwitch($player){
+		$coin = rand(0,1);
+		if($coin==0){$coin=9;}
+		if($player==2){
+			echo '<a href="index.php">Play against a human instead</a><br>';
+		}
+		else{
+			echo '<a href="index.php?state=0000000002' . $coin . '">Play against the computer instead</a><br>';
 		}
 	}
 
@@ -220,5 +232,39 @@
 		$state[$moves[rand(0,count($moves)-1)]] = $xo;
 		return $state;
 	}
-#	echo aiMove("00001000009");
+
+	# printRecords prints the game history against the current opponent
+	#
+	# $player indicates the current opponenet is 1 = Human; 2 = Computer
+	#
+	function printRecords($player){
+		if($player==1){
+			echo '<div class="results">
+					<div class = "results__ident">X</div>
+					<div class = "results__number">' . $_SESSION["xwin"] . '</div>
+				</div>
+				<div class="results">
+					<div class = "results__ident">O</div>
+					<div class = "results__number">' . $_SESSION["owin"] . '</div>
+				</div>
+				<div class="results">
+					<div class = "results__ident">Draw</div>
+					<div class = "results__number">' . $_SESSION["hdraw"] . '</div>
+				</div>';
+		}
+		else{
+			echo '<div class="results">
+					<div class = "results__ident">Human</div>
+					<div class = "results__number">' . $_SESSION["hwin"] . '</div>
+				</div>
+				<div class="results">
+					<div class = "results__ident">Computer</div>
+					<div class = "results__number">' . $_SESSION["cwin"] . '</div>
+				</div>
+				<div class="results">
+					<div class = "results__ident">Draw</div>
+					<div class = "results__number">' . $_SESSION["cdraw"] . '</div>
+				</div>';
+		}
+	}
 ?>
