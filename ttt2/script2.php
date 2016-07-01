@@ -1,18 +1,10 @@
 <?php
-	$storage = "game.txt";
+	$storage = "history.txt";
 
-	function writeState($state){
+	function getGame($line){
 		global $storage;
-		$file_connection = fopen($storage, 'w') or die("Error opening file!");
-		fwrite($file_connection, $state);
-		fclose($file_connection);
+		$games = file($storage);
+		return $games[$line];
 	}
-
-	function getState(){
-		global $storage;
-		$file_connection = fopen($storage, 'r') or die ("Error opening file!");
-		$state = fgets($file_connection);
-		fclose($file_connection);
-		return $state;
-	}
+	echo file($storage)[2];
 ?>

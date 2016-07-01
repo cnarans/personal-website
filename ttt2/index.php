@@ -34,8 +34,15 @@ include 'script.php';
 		<div class = "wrapper">
 			<div class="top">
 				<div class = "arrow"><a href="../"><img src="White_left_arrow.svg" alt="back arrow"></a></div>
-				<div class = "status"><?php
-					printState($pos);
+				<div class = "status">
+				<?php
+					if($_GET["game"]){
+						$pos = file("history")[$_GET["game"]];
+						echo "Game " . ($_GET["game"] + 1);
+					}
+					else{
+						printState($pos);
+					}
 				?></div>
 			</div>
 			<div class = "row">
@@ -74,7 +81,11 @@ include 'script.php';
 			<h2><?php playerSwitch($pos[9]); ?></h2>
 			<div class = "bottom">
 				<h2><a href="index.php?reset=true">(Reset Records)</a></h2>
-				<?php printRecords($pos[9]); ?>
+				<?php 
+					printRecords($pos[9]); 
+					printHistory();
+				?>
+
 			</div>
 		</div>
 	</body>

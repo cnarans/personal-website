@@ -116,28 +116,34 @@
 			if($state[9]==2){
 				if($state[10]==1){
 					$_SESSION["cwin"]++;
+					saveGame();
 				}
 				else{
 					$_SESSION["hwin"]++;
+					saveGame();
 				}
 			}
 			else{
 				$_SESSION["xwin"]++;
+				saveGame();
 			}
 			echo "X WINS!<br>";
-			echo '<a class="none"href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
+			echo '<a class="none"href="index.php?move=!' . $state[9] . '">Play Again?</a>';
 		}
 		elseif($endgame==3){
 			if($state[9]==2){
 				if($state[10]==9){
 					$_SESSION["cwin"]++;
+					saveGame();
 				}
 				else{
 					$_SESSION["hwin"]++;
+					saveGame();
 				}
 			}
 			else{
 				$_SESSION["owin"]++;
+				saveGame();
 			}
 			echo "O WINS!<br>";
 			echo '<a href="index.php?move=!' . $state[9] . '">Play Again?</a>';
@@ -145,9 +151,11 @@
 		elseif($endgame==4){
 			if($state[9]==2){
 				$_SESSION["cdraw"]++;
+				saveGame();
 			}
 			else{
 				$_SESSION["hdraw"]++;
+				saveGame();
 			}
 			echo "A Draw<br>";
 			echo '<a href="index.php?move=!' . $state[9] . '">Play Again?</a>';
@@ -290,5 +298,20 @@
 		$state = fgets($file_connection);
 		fclose($file_connection);
 		return $state;
+	}
+
+	function saveGame(){
+		$state = getState();
+		$storage = "history.txt";
+		$file_connection = fopen($storage, 'a') or die("Error opening file!");
+		fwrite($file_connection, $state . "\n");
+		fclose($file_connection);
+	}
+
+	function printHistory(){
+		$games = file("history.txt");
+		for($i=0; $i<count($games); $i++){
+			echo '<a href="index.php?game=' . $i . '">Game ' . ($i+1) . '</a><br>';
+		}
 	}
 ?>
