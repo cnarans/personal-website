@@ -29,7 +29,6 @@ include 'script.php';
 				$pos = getState();
 				$turn = checkTurn($pos);
 			}
-			echo $pos;
 		?>
 		<div class = "wrapper">
 			<div class="top">
@@ -37,8 +36,8 @@ include 'script.php';
 				<div class = "status">
 				<?php
 					if($_GET["game"]){
-						$pos = file("history")[$_GET["game"]];
-						echo "Game " . ($_GET["game"] + 1);
+						$pos = file("history.txt")[$_GET["game"]];
+						echo "Game " . $_GET["game"];
 					}
 					else{
 						printState($pos);
