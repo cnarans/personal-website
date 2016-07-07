@@ -128,7 +128,50 @@ function aiMove($state){
 	return $state;
 }
 
-function storeScore($scores, $turn){
+function storeScore($scores, $state){
+
+	$turn = turnStatus($state);
+	$ai = $state[10];
+
+	if(!isset($scores)){
+		$scores["xwin"]=0;
+		$scores["owin"]=0;
+		$scores["hwin"]=0;
+		$scores["cwin"]=0;
+		$scores["hdraw"]=0;
+		$scores["cdraw"]=0;
+	}
+	
+	if($turn!=1&&$turn!=9){
+		if($state[9]=="1"){
+			if($turn==2){
+				$scores["xwin"]++;
+			}
+			elseif($turn==3){
+				$scores["owin"]++;
+			}
+			else{
+				$scores["hdraw"]++;
+			}
+		}
+		else{
+			if($turn==2&&$ai=="9"){
+				$scores["hwin"]++;
+			}
+			elseif($turn==2){
+				$scores["cwin"]++;
+			}
+			elseif($turn==3&&$ai=="1"){
+				$scores["hwin"]++;
+			}
+			elseif($turn==3){
+				$scores["cwin"]++;
+			}
+			else{
+				$scores["cdraw"]++;
+			}
+		}
+	}
 	return $scores;
 }
 

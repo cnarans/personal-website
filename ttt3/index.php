@@ -1,12 +1,6 @@
 <?php 
 session_start();
 include 'script.php';
-if($_GET["reset"]){
-	unset($_SESSION["score"]);
-}
-else{
-	$_SESSION["score"] = storeScore($_SESSION["score"], $turn);
-}
 
 if(isset($_GET["state"])){
 	$state = $_GET["state"];
@@ -20,6 +14,13 @@ $turn = turnStatus($state);
 if($state[9]==2&&$state[10]==$turn){
 	$state = aiMove($state);
 	$turn = turnStatus($state);
+}
+
+if($_GET["reset"]){
+	unset($_SESSION["score"]);
+}
+else{
+	$_SESSION["score"] = storeScore($_SESSION["score"], $state);
 }
 
 $coin = rand(0,1);
@@ -110,28 +111,28 @@ if($coin==0){$coin=9;}
 				<?php if($state[9]==1){?>
 				<div class="results">
 					<div class = "results__ident">X</div>
-					<div class = "results__number"><?php echo $_SESSION["xwin"]; ?></div>
+					<div class = "results__number"><?php echo $_SESSION["score"]["xwin"]; ?></div>
 				</div>
 				<div class="results">
 					<div class = "results__ident">O</div>
-					<div class = "results__number"><?php echo $_SESSION["owin"]; ?></div>
+					<div class = "results__number"><?php echo $_SESSION["score"]["owin"]; ?></div>
 				</div>
 				<div class="results">
 					<div class = "results__ident">Draw</div>
-					<div class = "results__number"><?php echo $_SESSION["hdraw"]; ?></div>
+					<div class = "results__number"><?php echo $_SESSION["score"]["hdraw"]; ?></div>
 				</div><?php }
 				else{ ?>
 				<div class="results">
 					<div class = "results__ident">Human</div>
-					<div class = "results__number"><?php echo $_SESSION["hwin"]; ?></div>
+					<div class = "results__number"><?php echo $_SESSION["score"]["hwin"]; ?></div>
 				</div>
 				<div class="results">
 					<div class = "results__ident">Computer</div>
-					<div class = "results__number"><?php echo $_SESSION["cwin"]; ?></div>
+					<div class = "results__number"><?php echo $_SESSION["score"]["cwin"]; ?></div>
 				</div>
 				<div class="results">
 					<div class = "results__ident">Draw</div>
-					<div class = "results__number"><?php echo $_SESSION["cdraw"]; ?></div>
+					<div class = "results__number"><?php echo $_SESSION["score"]["cdraw"]; ?></div>
 				</div><?php } ?>
 			</div>
 		</div>
