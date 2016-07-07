@@ -219,8 +219,8 @@ function saveGame($state){
 #
 function printHistory(){
 	$games = file("history.txt");
-	for($i=1; $i<count($games); $i++){
-		echo '<a href="index.php?game=' . $i . '">Game ' . $i . '</a><br>';
+	for($i=0; $i<count($games); $i++){
+		echo '<a href="index.php?game=' . $i . '">Game ' . ($i+1) . '</a><br>';
 	}
 }
 

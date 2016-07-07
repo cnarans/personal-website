@@ -18,6 +18,8 @@ if($state[9]==2&&$state[10]==$turn){
 
 if($_GET["reset"]){
 	unset($_SESSION["score"]);
+	$saves = fopen('history.txt','w');
+	fclose($saves);
 }
 else{
 	$_SESSION["score"] = storeScore($_SESSION["score"], $state);
@@ -49,14 +51,17 @@ if($coin==0){$coin=9;}
 						elseif($turn=="2"){
 							echo "X Wins!<br>";
 							echo '<a class="none"href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
+							saveGame($state);
 						}
 						elseif($turn=="3"){
 							echo "O Wins!<br>";
 							echo '<a class="none"href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
+							saveGame($state);
 						}
 						elseif($turn=="4"){
 							echo "It's a Draw<br>";
 							echo '<a class="none"href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
+							saveGame($state);
 						}
 						else{
 							echo "ERROR<br>";
@@ -133,7 +138,9 @@ if($coin==0){$coin=9;}
 				<div class="results">
 					<div class = "results__ident">Draw</div>
 					<div class = "results__number"><?php echo $_SESSION["score"]["cdraw"]; ?></div>
-				</div><?php } ?>
+				</div><?php } 
+				printHistory();
+				?>
 			</div>
 		</div>
 	</body>
