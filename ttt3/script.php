@@ -204,4 +204,24 @@ function storeScore($scores, $state){
 	return $scores;
 }
 
+# Save a game state to file
+#
+# $state = The current state of the game as determined by the query string
+#
+function saveGame($state){
+	$storage = "history.txt";
+	$file_connection = fopen($storage, 'a') or die("Error opening file!");
+	fwrite($file_connection, $state . "\n");
+	fclose($file_connection);
+}
+
+# Prints a link to each saved game
+#
+function printHistory(){
+	$games = file("history.txt");
+	for($i=1; $i<count($games); $i++){
+		echo '<a href="index.php?game=' . $i . '">Game ' . $i . '</a><br>';
+	}
+}
+
 ?>
