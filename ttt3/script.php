@@ -1,5 +1,12 @@
 <?php
 
+# Prints a square of the game board with the correct character and link
+#
+# $state = the current state of the game as determined by the query string
+# The first 9 digits of $state indicate the status of a game square
+# 0=blank; 1=X; 9=O
+# The last two digits indicates 1/2 for human/computer game and 1/2 for computer's pieces X/O
+#
 function printSquare($state, $square, $turn){
 	if($state[$square]=="0"){
 		$state[$square] = $turn;
@@ -11,8 +18,12 @@ function printSquare($state, $square, $turn){
 	elseif($state[$square]=="9"){
 		echo 'O';
 	}
-	}
+}
 
+# Checks to see if the game has ended
+# Return 2->xwin; 3->owin; 4->draw; 5->not endgame
+#
+# $state = the current state of the game as determined by the query string
 function checkStatus($state){
 	$win = array();
 	$win[0] = $state[0] . $state[1] . $state[2];
@@ -40,6 +51,10 @@ function checkStatus($state){
 	}
 }
 
+# Returns the current player's turn 1->X 2->O
+#
+# $state = the current state of the game as determined by the query string
+#
 function checkTurn($state){
 	$xCount = 0;
 	$oCount = 0;
@@ -59,6 +74,11 @@ function checkTurn($state){
 	}	
 }
 
+# Return the result of checkStatus if game has ended.
+# Otherwise is returns checkTurn;
+#
+# $state = the current state of the game as determined by the query string
+#
 function turnStatus($state){
 	$result = checkStatus($state);
 	if($result!=5){
@@ -69,6 +89,10 @@ function turnStatus($state){
 	}
 }
 
+# Returns a state indicating the computer player's move
+#
+# $state = the current state of the game as determined by the query string
+#
 function aiMove($state){
 	# $xo indicates if the computer is X or O
 	$xo = $state[10];
@@ -128,6 +152,11 @@ function aiMove($state){
 	return $state;
 }
 
+# Records the result of a game and returns all game results
+#
+# $scores = An array of past game outcomes
+# $state = The current state of the game as determined by the query string
+#
 function storeScore($scores, $state){
 
 	$turn = turnStatus($state);
