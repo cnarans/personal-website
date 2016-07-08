@@ -215,6 +215,15 @@ function saveGame($state){
 	fclose($file_connection);
 }
 
+# Load the state of a game saved to the history file
+#
+# $game line number containing the requested game
+#
+function loadGame($game){
+	$state = file("history.txt")[$game];
+	return $state;
+}
+
 # Prints a link to each saved game
 #
 function printHistory(){

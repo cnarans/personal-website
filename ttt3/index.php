@@ -42,7 +42,11 @@ if($coin==0){$coin=9;}
 				<div class = "arrow"><a href="../"><img src="White_left_arrow.svg" alt="back arrow"></a></div>
 				<div class = "status">
 					<?php
-						if($turn=="1"){
+						if(isset($_GET["game"])){
+							$state = loadGame($_GET["game"]);
+							echo "Game " . $_GET["game"];
+						}
+						elseif($turn=="1"){
 							echo "X's Turn<br>";
 						}
 						elseif($turn=="9"){
