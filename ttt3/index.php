@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include 'script.php';
+$history = session_id() . ".txt";
 
 if(isset($_GET["state"])){
 	$state = $_GET["state"];
@@ -18,8 +19,7 @@ if($state[9]==2&&$state[10]==$turn){
 
 if($_GET["reset"]){
 	unset($_SESSION["score"]);
-	$saves = fopen('history.txt','w');
-	fclose($saves);
+	unlink($history);
 }
 else{
 	$_SESSION["score"] = storeScore($_SESSION["score"], $state);
@@ -43,7 +43,7 @@ if($coin==0){$coin=9;}
 				<div class = "status">
 					<?php
 						if(isset($_GET["game"])){
-							$state = loadGame($_GET["game"]);
+							$state = loadGame($_GET["game"], $history);
 							echo "Game " . $_GET["game"];
 						}
 						elseif($turn=="1"){
@@ -55,17 +55,17 @@ if($coin==0){$coin=9;}
 						elseif($turn=="2"){
 							echo "X Wins!<br>";
 							echo '<a class="none"href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
-							saveGame($state);
+							saveGame($state, $history);
 						}
 						elseif($turn=="3"){
 							echo "O Wins!<br>";
 							echo '<a class="none"href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
-							saveGame($state);
+							saveGame($state, $history);
 						}
 						elseif($turn=="4"){
 							echo "It's a Draw<br>";
 							echo '<a class="none"href="index.php?state=000000000' . $state[9] . $coin . '">Play Again?</a>';
-							saveGame($state);
+							saveGame($state, $history);
 						}
 						else{
 							echo "ERROR<br>";
@@ -143,7 +143,7 @@ if($coin==0){$coin=9;}
 					<div class = "results__ident">Draw</div>
 					<div class = "results__number"><?php echo $_SESSION["score"]["cdraw"]; ?></div>
 				</div><?php } 
-				printHistory();
+				printHistory($history);
 				?>
 			</div>
 		</div>

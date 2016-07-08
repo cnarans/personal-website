@@ -208,9 +208,8 @@ function storeScore($scores, $state){
 #
 # $state = The current state of the game as determined by the query string
 #
-function saveGame($state){
-	$storage = "history.txt";
-	$file_connection = fopen($storage, 'a') or die("Error opening file!");
+function saveGame($state, $history){
+	$file_connection = fopen($history, 'a') or die("Error opening file!");
 	fwrite($file_connection, $state . "\n");
 	fclose($file_connection);
 }
@@ -219,17 +218,19 @@ function saveGame($state){
 #
 # $game line number containing the requested game
 #
-function loadGame($game){
-	$state = file("history.txt")[$game];
+function loadGame($game, $history){
+	$state = file($history)[$game];
 	return $state;
 }
 
 # Prints a link to each saved game
 #
-function printHistory(){
-	$games = file("history.txt");
-	for($i=0; $i<count($games); $i++){
-		echo '<a href="index.php?game=' . $i . '">Game ' . ($i+1) . '</a><br>';
+function printHistory($history){
+	if(file_exists($history)){
+		$games = file($history);
+		for($i=0; $i<count($games); $i++){
+			echo '<a href="index.php?game=' . $i . '">Game ' . ($i+1) . '</a><br>';
+		}
 	}
 }
 
