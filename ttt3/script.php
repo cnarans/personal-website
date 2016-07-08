@@ -24,6 +24,7 @@ function printSquare($state, $square, $turn){
 # Return 2->xwin; 3->owin; 4->draw; 5->not endgame
 #
 # $state = the current state of the game as determined by the query string
+#
 function checkStatus($state){
 	$win = array();
 	$win[0] = $state[0] . $state[1] . $state[2];
