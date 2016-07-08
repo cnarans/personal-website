@@ -207,6 +207,7 @@ function storeScore($scores, $state){
 # Save a game state to file
 #
 # $state = The current state of the game as determined by the query string
+# $history = The name of the history file
 #
 function saveGame($state, $history){
 	$file_connection = fopen($history, 'a') or die("Error opening file!");
@@ -217,6 +218,7 @@ function saveGame($state, $history){
 # Load the state of a game saved to the history file
 #
 # $game line number containing the requested game
+# $history = The name of the history file
 #
 function loadGame($game, $history){
 	$state = file($history)[$game];
@@ -224,6 +226,8 @@ function loadGame($game, $history){
 }
 
 # Prints a link to each saved game
+#
+# $history = The name of the history file
 #
 function printHistory($history){
 	if(file_exists($history)){
